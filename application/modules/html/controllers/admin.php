@@ -5,10 +5,18 @@ class Admin extends MX_Controller {
 
     public function __construct() {
         parent::__construct();
+        
+        $this->load->module('auth');
+        if(!$this->auth->ion_auth->logged_in())
+            redirect('auth/login', 'refresh');        
     }
   
     
+    
+    
     public function index(){
+        $this->load->view('admin_welcome');
+        
     }
     
     

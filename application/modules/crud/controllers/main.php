@@ -21,9 +21,9 @@ class main extends MX_Controller{
     public function view(){
         $data=$this->crud_library->getView();
         
-        $header=modules::run('html/draw/header');
-        $footer=modules::run('html/draw/footer');
-        $table=modules::run('html/draw/table',$data['columns'],$data['data'],$data['pagination'],$data['description']);
+        $header=modules::run('html/admin/header');
+        $footer=modules::run('html/admin/footer');
+        $table=modules::run('html/admin/table',$data['columns'],$data['data'],$data['pagination'],$data['description']);
         
         $this->load->view('crud/main',array('header'=>$header,'footer'=>$footer,'table'=>$table) );
     }
@@ -32,9 +32,9 @@ class main extends MX_Controller{
         if( !$this->crud_library->isValidForm() ){
             $data=$this->crud_library->getForm();
 
-            $header=modules::run('html/draw/header');
-            $footer=modules::run('html/draw/footer');            
-            $form=modules::run('html/draw/form',$data['fields'],$data['data'],$data['errors']);
+            $header=modules::run('html/admin/header');
+            $footer=modules::run('html/admin/footer');            
+            $form=modules::run('html/admin/form',$data['fields'],$data['data'],$data['errors']);
             
             $this->load->view('crud/main',array('header'=>$header,'footer'=>$footer,'form'=>$form) );
         }
@@ -49,9 +49,9 @@ class main extends MX_Controller{
 
     public function add(){
         if( !$this->crud_library->isValidForm() ){
-            $header=modules::run('html/draw/header');
-            $footer=modules::run('html/draw/footer');            
-            $form=modules::run('html/draw/form',$data['fields'],$data['data'],$data['errors']);
+            $header=modules::run('html/admin/header');
+            $footer=modules::run('html/admin/footer');            
+            $form=modules::run('html/admin/form',$data['fields'],$data['data'],$data['errors']);
             
             $this->load->view('crud/main',array('header'=>$header,'footer'=>$footer,'form'=>$form) );
         }

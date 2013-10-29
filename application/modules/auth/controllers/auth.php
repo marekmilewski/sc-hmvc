@@ -76,8 +76,8 @@ class Auth extends MX_Controller {
 		else
 		{  //the user is not logging in so display the login page
 		
-                                    $data['header']=modules::run('html/draw/header',false);
-                                    $data['footer']=modules::run('html/draw/footer');
+                                    $data['header']=modules::run('html/admin/header',false);
+                                    $data['footer']=modules::run('html/admin/footer');
                                             
                                             
 			$data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');

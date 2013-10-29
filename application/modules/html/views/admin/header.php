@@ -26,7 +26,7 @@
     </head>
 <body>
     
-<?php if(isset($drawMenu) && $drawMenu) $this->load->view('admin_menu'); ?>
+<?php if(isset($drawMenu) && $drawMenu) $this->load->view('admin/menu'); ?>
     
 <div class="container">
     

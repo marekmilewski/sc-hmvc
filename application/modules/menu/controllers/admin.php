@@ -53,8 +53,12 @@ public function __construct(){
             
     }
 
+    public function drawMenu(){
+        return $this->load->view('/admin/menu',array(),true);
+    }
 
-
+    
+    
 private function renderMenu(){
     $this->load->model('menu/menu_model');
     $items=$this->menu_model->getMenu(0);
@@ -113,7 +117,7 @@ private function renderMenu(){
     $out.='</nav>';
     
     $this->load->helper('file');
-    file_put_contents('application/modules/html/views/menu.php', $out);
+    file_put_contents('application/modules/menu/views/admin/menu.php', $out);
 
 }
 

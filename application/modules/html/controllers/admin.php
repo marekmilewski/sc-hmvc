@@ -15,13 +15,18 @@ class Admin extends MX_Controller {
     
     
     public function index(){
-        $this->load->view('admin/welcome');
+        $header=$this->header(true);
+        $footer=$this->footer();
+        
+        $this->load->view('admin/welcome',array('header'=>$header, 'footer'=>$footer) );
         
     }
     
     
     public function header($drawMenu=true){
-       return $this->load->view('admin/header',array('drawMenu'=>$drawMenu),true);
+       
+       $menu=($drawMenu) ? modules::run('menu/admin/drawMenu') : '' ;
+       return $this->load->view('admin/header',array('menu'=>$menu),true);
     }
     
     public function footer(){

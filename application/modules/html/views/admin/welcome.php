@@ -1,5 +1,4 @@
-<?php $this->load->view('admin/header',array('drawMenu'=>true)); ?>
+<?php echo $header; ?>
 
 
-
-<?php $this->load->view('admin/footer'); ?>
+<?php echo $footer; ?>

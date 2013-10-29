@@ -12,8 +12,8 @@ class Draw extends MX_Controller {
     }
     
     
-    public function header(){
-       return $this->load->view('header',true);
+    public function header($drawMenu=true){
+       return $this->load->view('header',array('drawMenu'=>$drawMenu),true);
     }
     
     public function footer(){

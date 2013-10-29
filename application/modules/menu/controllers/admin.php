@@ -1,14 +1,16 @@
 <?php
-
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-include_once APPPATH . '/modules/crud/controllers/main.php';
 
-
-class Admin extends Main{
+class Admin extends MX_Controller{
 
 public function __construct(){
     parent::__construct();
+    
+    $this->load->module('auth');
+    if(!$this->auth->ion_auth->logged_in())
+        redirect('auth/login', 'refresh');
+        
     $this->config->load('menu');
 }
     

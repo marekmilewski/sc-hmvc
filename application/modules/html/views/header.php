@@ -26,7 +26,7 @@
     </head>
 <body>
     
-<?php $this->load->view('menu'); ?>
+<?php if($drawMenu) $this->load->view('menu'); ?>
     
 <div class="container">
     

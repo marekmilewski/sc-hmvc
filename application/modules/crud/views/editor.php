@@ -118,6 +118,8 @@ elseif($this->uri->segment( $this->config->item('action_segment') )=='add' || $t
 </div>
 </div>
 
+</div>  
+
 
 <div class="row">
     <div class="col-md-12 center">
@@ -127,7 +129,7 @@ elseif($this->uri->segment( $this->config->item('action_segment') )=='add' || $t
 </div>
     
 </form>        
-</div>  
+
     
 <?php } 
 

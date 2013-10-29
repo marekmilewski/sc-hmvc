@@ -1,20 +1,20 @@
 
 function addColumn(){
-    $.post(BASEURL+'editor/add_column', function(data) { $('#columns').append(data); } );
+    $.post(BASEURL+'crud/editor/add_column', function(data) { $('#columns').append(data); } );
 }
 
 
 function addKey(){
-    $.post(BASEURL+'editor/add_key', function(data) { $('#keys').append(data); } );
+    $.post(BASEURL+'crud/editor/add_key', function(data) { $('#keys').append(data); } );
 }
 
 
 function addSearch(){
-    $.post(BASEURL+'editor/add_search', function(data) { $('#searchs').append(data); } );
+    $.post(BASEURL+'crud/editor/add_search', function(data) { $('#searchs').append(data); } );
 }
 
 function addField(){
-    $.post(BASEURL+'editor/add_field',function(data) { $('#fields').append(data); } );
+    $.post(BASEURL+'crud/editor/add_field',function(data) { $('#fields').append(data); } );
 }
 
 function confirmDialog(link){
@@ -24,7 +24,7 @@ function confirmDialog(link){
 
 function deleteColumn(scrudID,columnID){
     if(scrudID!='')
-        $.post(BASEURL+'editor/delete_column',  {'scrudID':scrudID, 'columnID':columnID}, function(data) { } );
+        $.post(BASEURL+'crud/editor/delete_column',  {'scrudID':scrudID, 'columnID':columnID}, function(data) { } );
     
     $('#col-a'+columnID).remove();
     $('#col-b'+columnID).remove();
@@ -33,21 +33,21 @@ function deleteColumn(scrudID,columnID){
 
 function deleteKey(scrudID,keyID){
     if(scrudID!='')
-        $.post(BASEURL+'editor/delete_key',  {'scrudID':scrudID, 'keyID':keyID}, function(data) {} );
+        $.post(BASEURL+'crud/editor/delete_key',  {'scrudID':scrudID, 'keyID':keyID}, function(data) {} );
     
     $('#key'+keyID).remove();
 }
 
 function deleteSearch(scrudID,searchID){
     if(scrudID!='')
-        $.post(BASEURL+'editor/delete_search',  {'scrudID':scrudID, 'searchID':searchID}, function(data) {} );
+        $.post(BASEURL+'crud/editor/delete_search',  {'scrudID':scrudID, 'searchID':searchID}, function(data) {} );
     
     $('#search'+searchID).remove();
 }
 
 function deleteField(scrudID,fieldID){
     if(scrudID!='')
-        $.post(BASEURL+'editor/delete_field',  {'scrudID':scrudID, 'fieldID':fieldID}, function(data) {} );
+        $.post(BASEURL+'crud/editor/delete_field',  {'scrudID':scrudID, 'fieldID':fieldID}, function(data) {} );
     
     $('#field-a'+fieldID).remove();
     $('#field-b'+fieldID).remove();

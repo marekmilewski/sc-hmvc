@@ -41,8 +41,11 @@ public function add(){
     $this->form_validation->set_rules('field_name[]', 'Nazwa pola', 'required');
     
     if ($this->form_validation->run() == FALSE){      
+        $header=modules::run('html/draw/header');
+        $footer=modules::run('html/draw/footer');    
+            
         $data=$this->prepareForm();
-        $this->load->view('crud/editor',array('action'=>NULL, 'table_name'=>$data['table_name'],'columns'=>$data['columns'],'keys'=>$data['keys'],'searchs'=>$data['searchs'], 'fields'=>$data['fields']) );
+        $this->load->view('crud/editor',array('footer'=>$footer, 'header'=>$header, 'action'=>NULL, 'table_description'=>$data['table_description'], 'table_name'=>$data['table_name'],'columns'=>$data['columns'],'keys'=>$data['keys'],'searchs'=>$data['searchs'], 'fields'=>$data['fields']) );
     }
     else{
         $scrudID=$this->crud_model->insertScrudData('scrud_tables',array('name'=>$this->input->post('table_name'),'description'=>$this->input->post('table_description') ));
@@ -117,8 +120,12 @@ public function edit(){
         $scrudID=(int)$this->uri->segment( $this->config->item('scrudID_segment') );
         
         if ($this->form_validation->run() == FALSE){      
+            
+            $header=modules::run('html/draw/header');
+            $footer=modules::run('html/draw/footer');    
+            
             $data=$this->prepareForm($scrudID);
-            $this->load->view('crud/editor',array('scrudID'=>$scrudID,'action'=>NULL, 'table_name'=>$data['table_name'],'table_description'=>$data['table_description'], 'columns'=>$data['columns'],'keys'=>$data['keys'],'searchs'=>$data['searchs'], 'fields'=>$data['fields']) );
+            $this->load->view('crud/editor',array('footer'=>$footer, 'header'=>$header, 'scrudID'=>$scrudID,'action'=>NULL, 'table_name'=>$data['table_name'],'table_description'=>$data['table_description'], 'columns'=>$data['columns'],'keys'=>$data['keys'],'searchs'=>$data['searchs'], 'fields'=>$data['fields']) );
     }
     else{
         

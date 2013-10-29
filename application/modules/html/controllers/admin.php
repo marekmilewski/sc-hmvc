@@ -24,11 +24,7 @@ class Admin extends MX_Controller {
     
     
     public function header($drawMenu=true){
-       
-       $menu=modules::run('menu/admin/drawMenu') ;
-
-       echo 'test';
-       die($menu);
+       $menu=$this->load->view('admin/menu');
        return $this->load->view('admin/header',array('menu'=>$menu),true);
     }
     

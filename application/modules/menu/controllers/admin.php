@@ -11,7 +11,7 @@ public function __construct(){
     if(!$this->auth->ion_auth->logged_in())
         redirect('auth/login', 'refresh');
         
-    $this->config->load('menu/menu');
+    $this->config->load('menu');
 }
     
 
@@ -53,9 +53,8 @@ public function __construct(){
             
     }
 
-    public function drawMenu(){
-        $tmp=$this->load->view('admin/menu',array(),true);
-        return $tmp;
+    public function draw(){
+        return 'ok';
     }
 
     

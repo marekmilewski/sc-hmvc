@@ -22,7 +22,8 @@ class main extends MX_Controller{
         $data=$this->crud_library->getView();
         
         $header=modules::run('html/admin/header');
-        
+        //$menu=modules::run('menu/admin/draw');
+
         $footer=modules::run('html/admin/footer');
         $table=modules::run('html/admin/table',$data['columns'],$data['data'],$data['pagination'],$data['description']);
         

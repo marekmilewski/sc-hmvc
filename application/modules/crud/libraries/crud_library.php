@@ -10,8 +10,7 @@ class crud_library {
     private $form_fields;
     private $form_data;
     private $form_upload_errors;
-    
-    
+
     public function __construct() {
         $this->CI =& get_instance();
         $this->CI->load->model('crud/crud_model');
@@ -19,7 +18,7 @@ class crud_library {
         $this->CI->config->load('crud/crud');
         $this->scrudID=$this->getScrudID();
         $this->params=$this->CI->uri->uri_to_assoc( $this->CI->config->item('params_start_segment') );
-
+        
         $this->form_data=NULL;
         $this->upload_errors=NULL;
     }
@@ -64,8 +63,8 @@ class crud_library {
         $data=$this->CI->crud_model->getTableData($this->scrudID,$cols,$this->params,$search_terms,$search_value,$this->CI->config->item('scrud_limit'),$from);
 
         foreach($data as $key=>$row){
-            $data[$key]['edit_action']=base_url().$this->CI->router->fetch_module().'/'.$this->CI->router->fetch_class().'/edit/'.$this->scrudID.'/'.$this->getKeys($keys,$data[$key]);
-            $data[$key]['delete_action']='javascript:confirmDialog('.base_url().$this->CI->router->fetch_module().'/'.$this->CI->router->fetch_class().'/delete/'.$this->scrudID.'/'.$this->getKeys($keys,$data[$key]);
+            $data[$key]['edit_action']=base_url().$this->CI->uri->segment(1).'/'.$this->CI->router->fetch_class().'/edit/'.$this->scrudID.'/'.$this->getKeys($keys,$data[$key]);
+            $data[$key]['delete_action']='javascript:confirmDialog('.base_url().$this->CI->uri->segment(1).'/'.$this->CI->router->fetch_class().'/delete/'.$this->scrudID.'/'.$this->getKeys($keys,$data[$key]);
         }
         
         

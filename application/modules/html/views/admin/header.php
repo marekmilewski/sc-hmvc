@@ -26,7 +26,12 @@
     </head>
 <body>
     
-<?php echo $menu; ?>
+<?php 
+
+if($this->router->fetch_class()!='auth' && $this->router->fetch_method()!='login')
+    $this->load->view('menu');
+
+?>
     
 <div class="container">
     

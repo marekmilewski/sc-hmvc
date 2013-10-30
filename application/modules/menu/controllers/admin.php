@@ -6,12 +6,12 @@ class Admin extends MX_Controller{
 
 public function __construct(){
     parent::__construct();
-    
+
     $this->load->module('auth');
     if(!$this->auth->ion_auth->logged_in())
-        redirect('auth/login', 'refresh');
-        
-    $this->config->load('menu');
+            redirect('auth', 'refresh');    
+    
+    $this->config->load('menu/menu');
 }
     
 
@@ -51,10 +51,6 @@ public function __construct(){
             
             
             
-    }
-
-    public function draw(){
-        return 'ok';
     }
 
     
@@ -117,7 +113,7 @@ private function renderMenu(){
     $out.='</nav>';
     
     $this->load->helper('file');
-    file_put_contents('application/modules/menu/views/admin/menu.php', $out);
+    file_put_contents('application/modules/html/views/admin/menu.php', $out);
 
 }
 

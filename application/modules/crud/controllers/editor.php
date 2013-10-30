@@ -25,8 +25,8 @@ public function index(){
 public function view(){
     $this->session->set_userdata( array('referer'=>current_url() ) );
     $data=$this->crud_model->getAdminTables();
-    $header=modules::run('html/admin/header');
-    $footer=modules::run('html/admin/footer');
+    $header=modules::run('html/draw/header');
+    $footer=modules::run('html/draw/footer');
     $this->load->view('crud/editor',array('header'=>$header, 'footer'=>$footer, 'action'=>NULL,'data'=>$data) );
 }
 
@@ -41,8 +41,8 @@ public function add(){
     $this->form_validation->set_rules('field_name[]', 'Nazwa pola', 'required');
     
     if ($this->form_validation->run() == FALSE){      
-        $header=modules::run('html/admin/header');
-        $footer=modules::run('html/admin/footer');    
+        $header=modules::run('html/draw/header');
+        $footer=modules::run('html/draw/footer');    
             
         $data=$this->prepareForm();
         $this->load->view('crud/editor',array('footer'=>$footer, 'header'=>$header, 'action'=>NULL, 'table_description'=>$data['table_description'], 'table_name'=>$data['table_name'],'columns'=>$data['columns'],'keys'=>$data['keys'],'searchs'=>$data['searchs'], 'fields'=>$data['fields']) );
@@ -121,8 +121,8 @@ public function edit(){
         
         if ($this->form_validation->run() == FALSE){      
             
-            $header=modules::run('html/admin/header');
-            $footer=modules::run('html/admin/footer');    
+            $header=modules::run('html/draw/header');
+            $footer=modules::run('html/draw/footer');    
             
             $data=$this->prepareForm($scrudID);
             $this->load->view('crud/editor',array('footer'=>$footer, 'header'=>$header, 'scrudID'=>$scrudID,'action'=>NULL, 'table_name'=>$data['table_name'],'table_description'=>$data['table_description'], 'columns'=>$data['columns'],'keys'=>$data['keys'],'searchs'=>$data['searchs'], 'fields'=>$data['fields']) );

@@ -1,14 +1,11 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 
-class Admin extends MX_Controller {
+
+class Draw extends MX_Controller {
 
     public function __construct() {
         parent::__construct();
-        
-        $this->load->module('auth');
-        if(!$this->auth->ion_auth->logged_in())
-            redirect('auth/login', 'refresh');        
     }
   
     
@@ -23,8 +20,8 @@ class Admin extends MX_Controller {
     }
     
     
-    public function header($drawMenu=true){
-       $menu=$this->load->view('admin/menu');
+    
+    public function header(){
        return $this->load->view('admin/header',array('menu'=>$menu),true);
     }
     

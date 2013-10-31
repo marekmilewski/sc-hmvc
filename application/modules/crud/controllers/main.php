@@ -8,7 +8,7 @@ class main extends MX_Controller{
         
         $auth=$this->load->module('users/auth');
         if(!$auth->ion_auth->logged_in())
-            redirect('auth', 'refresh');
+            redirect('users/auth', 'refresh');
 
         $this->load->library('crud/crud_library');
     }

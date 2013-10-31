@@ -64,7 +64,16 @@ public function edit(){
         }
             
     }
-
-
+    
+    
+public function delete(){
+    $keys=$this->crud_library->getKeysFromURL();
+    
+    $this->load->library('ion_auth');    
+    $this->ion_auth->delete_user($keys['id']);
+    redirect($this->session->userdata('referer'));
+}
+    
+    
 }
 

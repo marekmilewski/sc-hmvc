@@ -8,9 +8,9 @@ class editor extends MX_Controller{
 public function __construct() {
     parent::__construct();
     
-    $this->load->module('auth');
-    if(!$this->auth->ion_auth->logged_in())
-        redirect('auth/login', 'refresh');
+    $auth=$this->load->module('auth');
+        if(!$auth->ion_auth->logged_in())
+            redirect('auth', 'refresh');
         
     $this->load->model('crud/crud_model');
     $this->load->helper('form');

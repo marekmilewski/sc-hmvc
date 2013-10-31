@@ -1,20 +1,59 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+
 class Auth extends MX_Controller {
+    
+    
+public function __construct(){
+    parent::__construct();
+    $this->load->library('ion_auth');
+    $this->load->library('session');
+    $this->load->library('form_validation');
+    $this->load->helper('url');
+    
+    $this->config->item('use_mongodb', 'ion_auth') ? $this->load->library('mongo_db') : $this->load->database();
+}
 
-	function __construct()
-	{
-		parent::__construct();
-		$this->load->library('ion_auth');
-		$this->load->library('session');
-		$this->load->library('form_validation');
-		$this->load->helper('url');
-		// Load MongoDB library instead of native db driver if required
-		$this->config->item('use_mongodb', 'ion_auth') ?
-			$this->load->library('mongo_db') :
-			$this->load->database();
-	}
 
+public function login(){
+    
+    $this->form_validation->set_rules('identity', 'Identity', 'required');
+    $this->form_validation->set_rules('password', 'Password', 'required');
+    
+    if ($this->form_validation->run() == true){
+        $remember = (bool) $this->input->post('remember');
+        
+        if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember)){ 
+            $this->session->set_flashdata('message', $this->ion_auth->messages());
+            redirect('html/draw/index', 'refresh');
+        }
+        else{
+            $this->session->set_flashdata('message', $this->ion_auth->errors());
+            redirect('auth/admin/login', 'refresh'); 
+        }    
+    }
+    else{
+        $data['header']=modules::run('html/draw/header',false);
+        $data['footer']=modules::run('html/draw/footer');
+        
+        $data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
+        
+        $data['identity'] = array('name' => 'identity','id' => 'identity','type' => 'text','value' => $this->form_validation->set_value('identity'),);
+        $data['password'] = array('name' => 'password','id' => 'password','type' => 'password',);
+        $this->load->view('auth/admin/login', $data);
+    }
+	
+    
+}
+        
+        
+        
+        
+        
+        
+
+        
+        
 	//redirect if needed, otherwise display the user list
 	function index()
 	{
@@ -47,56 +86,7 @@ class Auth extends MX_Controller {
 	}
 
 	//log the user in
-	function login()
-	{
-		$data['title'] = "Login";
 
-		//validate form input
-		$this->form_validation->set_rules('identity', 'Identity', 'required');
-		$this->form_validation->set_rules('password', 'Password', 'required');
-
-  
-                
-		if ($this->form_validation->run() == true)
-		{ //check to see if the user is logging in
-			//check for "remember me"
-			$remember = (bool) $this->input->post('remember');
-
-			if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember))
-			{ //if the login is successful
-				//redirect them back to the home page
-				$this->session->set_flashdata('message', $this->ion_auth->messages());
-				redirect($this->config->item('base_url'), 'refresh');
-			}
-			else
-			{ //if the login was un-successful
-				//redirect them back to the login page
-				$this->session->set_flashdata('message', $this->ion_auth->errors());
-				redirect('auth/login', 'refresh'); //use redirects instead of loading views for compatibility with MY_Controller libraries
-			}
-		}
-		else
-		{  //the user is not logging in so display the login page
-		
-                                    $data['header']=modules::run('html/admin/header',false);
-                                    $data['footer']=modules::run('html/admin/footer');
-                                            
-                                            
-			$data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
-
-			$data['identity'] = array('name' => 'identity',
-				'id' => 'identity',
-				'type' => 'text',
-				'value' => $this->form_validation->set_value('identity'),
-			);
-			$data['password'] = array('name' => 'password',
-				'id' => 'password',
-				'type' => 'password',
-			);
-
-			$this->load->view('auth/login', $data);
-		}
-	}
 
 	//log the user out
 	function logout()

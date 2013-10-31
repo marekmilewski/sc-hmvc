@@ -22,7 +22,7 @@ class Draw extends MX_Controller {
     
     
     public function header(){
-       return $this->load->view('admin/header',array('menu'=>$menu),true);
+       return $this->load->view('admin/header',true);
     }
     
     public function footer(){

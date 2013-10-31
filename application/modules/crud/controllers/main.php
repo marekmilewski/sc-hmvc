@@ -1,14 +1,13 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 
-
 class main extends MX_Controller{
     
     public function __construct() {
         parent::__construct();
         
-        $this->load->module('auth');
-        if(!$this->auth->ion_auth->logged_in())
+        $auth=$this->load->module('auth');
+        if(!$auth->ion_auth->logged_in())
             redirect('auth', 'refresh');
 
         $this->load->library('crud/crud_library');

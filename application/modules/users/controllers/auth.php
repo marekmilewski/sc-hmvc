@@ -15,6 +15,11 @@ public function __construct(){
 }
 
 
+public function index(){
+    $this->login();
+}
+
+
 public function login(){
     
     $this->form_validation->set_rules('identity', 'Identity', 'required');
@@ -29,7 +34,7 @@ public function login(){
         }
         else{
             $this->session->set_flashdata('message', $this->ion_auth->errors());
-            redirect('auth/admin/login', 'refresh'); 
+            redirect('users/auth/login', 'refresh'); 
         }    
     }
     else{
@@ -40,7 +45,7 @@ public function login(){
         
         $data['identity'] = array('name' => 'identity','id' => 'identity','type' => 'text','value' => $this->form_validation->set_value('identity'),);
         $data['password'] = array('name' => 'password','id' => 'password','type' => 'password',);
-        $this->load->view('auth/admin/login', $data);
+        $this->load->view('admin/login', $data);
     }
 	
     
@@ -50,7 +55,7 @@ public function login(){
         
         
         
-        
+       /* 
 
         
         
@@ -86,7 +91,7 @@ public function login(){
 	}
 
 	//log the user in
-
+*/
 
 	//log the user out
 	function logout()

@@ -1,5 +1,7 @@
 <?php echo $header; ?>
 
+<?php echo $message; ?>
+
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
@@ -7,7 +9,7 @@
             <div class="panel-heading"><h5 style="margin:0;padding:0;">Admin CMS</h5></div>
             <div class="panel-body" style="padding:30px;">
                 
-            <form action="<?php echo base_url().'auth/admin/login'; ?>" method="post" role="form" accept-charset="utf-8">
+            <form action="<?php echo base_url().'users/auth/login'; ?>" method="post" role="form" accept-charset="utf-8">
                 
                 <div class="form-group <?php if(form_error('identity')!='') echo 'has-error'; ?>" style="margin:0;">
                     <label for="identity" style="font-size:13px;font-weight:normal;">Email/Login:</label>

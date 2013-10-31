@@ -26,3 +26,9 @@ ERROR - 2013-10-31 15:37:31 --> Severity: Notice  --> Undefined variable: data /
 ERROR - 2013-10-31 15:37:31 --> Severity: Notice  --> Undefined variable: data /home/fujitsu/Projekty/sc-hmvc/application/modules/users/controllers/admin.php 22
 ERROR - 2013-10-31 15:37:31 --> Severity: Notice  --> Undefined variable: data /home/fujitsu/Projekty/sc-hmvc/application/modules/users/controllers/admin.php 22
 ERROR - 2013-10-31 15:37:31 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/fujitsu/Projekty/sc-hmvc/application/modules/html/views/admin/form.php 18
+ERROR - 2013-10-31 15:39:49 --> Severity: Notice  --> Undefined variable: data /home/fujitsu/Projekty/sc-hmvc/application/modules/users/controllers/admin.php 22
+ERROR - 2013-10-31 15:39:49 --> Severity: Notice  --> Undefined variable: data /home/fujitsu/Projekty/sc-hmvc/application/modules/users/controllers/admin.php 22
+ERROR - 2013-10-31 15:39:49 --> Severity: Notice  --> Undefined variable: data /home/fujitsu/Projekty/sc-hmvc/application/modules/users/controllers/admin.php 22
+ERROR - 2013-10-31 15:39:49 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/fujitsu/Projekty/sc-hmvc/application/modules/html/views/admin/form.php 18
+ERROR - 2013-10-31 15:42:18 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/fujitsu/Projekty/sc-hmvc/application/modules/html/views/admin/form.php 18
+ERROR - 2013-10-31 15:45:17 --> Severity: Notice  --> Trying to get property of non-object /home/fujitsu/Projekty/sc-hmvc/application/modules/crud/controllers/editor.php 12

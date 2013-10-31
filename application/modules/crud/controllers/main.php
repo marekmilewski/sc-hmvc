@@ -31,8 +31,7 @@ class main extends MX_Controller{
     
     public function edit(){
         if( !$this->crud_library->isValidForm() ){
-            $data=$this->crud_library->getForm();
-
+            $data=$this->crud_library->getForm();           
             $header=modules::run('html/draw/header');
             $footer=modules::run('html/draw/footer');            
             $form=modules::run('html/draw/form',$data['fields'],$data['data'],$data['errors']);
@@ -50,6 +49,7 @@ class main extends MX_Controller{
 
     public function add(){
         if( !$this->crud_library->isValidForm() ){
+            $data=$this->crud_library->getForm();   
             $header=modules::run('html/draw/header');
             $footer=modules::run('html/draw/footer');            
             $form=modules::run('html/draw/form',$data['fields'],$data['data'],$data['errors']);

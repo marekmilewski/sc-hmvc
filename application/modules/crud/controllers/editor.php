@@ -8,7 +8,7 @@ class editor extends MX_Controller{
 public function __construct() {
     parent::__construct();
     
-    $auth=$this->load->module('auth');
+    $auth=$this->load->module('users/auth');
         if(!$auth->ion_auth->logged_in())
             redirect('auth', 'refresh');
         

@@ -19,12 +19,14 @@ class main extends MX_Controller{
     
     public function view(){
         $data=$this->crud_library->getView();
+        $module=$this->router->fetch_module();
         
         $header=modules::run('html/draw/header');
         $footer=modules::run('html/draw/footer');
         $table=modules::run('html/draw/table',$data['columns'],$data['data'],$data['pagination'],$data['description']);
+        $add_link=base_url().$module.'/'.$this->uri->segment(2).'/add/'.$this->crud_library->getScrudID();
         
-        $this->load->view('crud/main',array('header'=>$header,'footer'=>$footer,'table'=>$table) );
+        $this->load->view('crud/main',array('header'=>$header,'footer'=>$footer,'table'=>$table,'add_link'=>$add_link) );
     }
     
     public function edit(){

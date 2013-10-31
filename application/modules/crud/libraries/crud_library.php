@@ -223,7 +223,7 @@ class crud_library {
         return $keys;
     }
 
-    private function getScrudID(){
+    public function getScrudID(){
         $this->scrudID=$this->CI->uri->segment( $this->CI->config->item('scrudID_segment') );
         if(!$this->scrudID)
             die('No scrudID !!!');

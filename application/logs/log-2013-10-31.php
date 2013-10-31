@@ -34,3 +34,8 @@ ERROR - 2013-10-31 15:42:18 --> Severity: Warning  --> Invalid argument supplied
 ERROR - 2013-10-31 15:45:17 --> Severity: Notice  --> Trying to get property of non-object /home/fujitsu/Projekty/sc-hmvc/application/modules/crud/controllers/editor.php 12
 ERROR - 2013-10-31 15:58:18 --> Query error: Unknown column 'password1' in 'field list'
 ERROR - 2013-10-31 15:59:34 --> 404 Page Not Found --> auth
+ERROR - 2013-10-31 16:07:44 --> Severity: Notice  --> Undefined variable: date /home/fujitsu/Projekty/sc-hmvc/application/modules/users/controllers/admin.php 33
+ERROR - 2013-10-31 16:07:44 --> Severity: Notice  --> Undefined index: company /home/fujitsu/Projekty/sc-hmvc/application/modules/users/controllers/admin.php 34
+ERROR - 2013-10-31 16:07:44 --> Severity: Notice  --> Undefined index: phone /home/fujitsu/Projekty/sc-hmvc/application/modules/users/controllers/admin.php 35
+ERROR - 2013-10-31 16:13:41 --> Severity: Notice  --> Undefined variable: message /home/fujitsu/Projekty/sc-hmvc/application/modules/users/views/admin/forgot_password.php 4
+ERROR - 2013-10-31 16:13:41 --> Severity: Notice  --> Undefined variable: email /home/fujitsu/Projekty/sc-hmvc/application/modules/users/views/admin/forgot_password.php 9

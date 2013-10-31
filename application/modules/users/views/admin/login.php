@@ -38,7 +38,7 @@
                 
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12">
-                    <p><a href="forgot_password">Nie pamiętasz hasła?</a></p>
+                    <p><a href="<?php echo base_url().'users/auth/forgot_password'; ?>">Nie pamiętasz hasła?</a></p>
                     </div>
                 </div>
             </form>

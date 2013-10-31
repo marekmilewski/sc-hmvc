@@ -215,7 +215,7 @@ class crud_library {
     
     
     
-    private function getKeysFromURL(){
+    public function getKeysFromURL(){
         $keys=$this->CI->uri->uri_to_assoc( $this->CI->config->item('params_start_segment') );
         if(isset($keys['from']) && $keys['from']!='')
             unset($keys['from']);    

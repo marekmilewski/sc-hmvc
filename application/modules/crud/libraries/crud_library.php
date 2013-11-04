@@ -73,11 +73,10 @@ class crud_library {
         array_push($all_columns, array('name' => 'delete_action','description'=>'Usuń','align'=>'center','width' => '10'));
 
         $this->CI->load->library('pagination');
-        $config['base_url'] = base_url().$this->CI->router->fetch_module().'/'.$this->CI->router->fetch_class().'/view/'.$this->scrudID.'/from/';
+        $config['base_url'] = base_url().$this->CI->uri->segment(1).'/'.$this->CI->router->fetch_class().'/view/'.$this->scrudID.'/from/';
         $config['total_rows'] = $this->CI->crud_model->countResults($this->scrudID);
-        $config['per_page'] = $this->CI->config->item('scrud_limit');
-        $config['uri_segment']=$this->CI->config->item('params_start_segment')-1;
-    
+        $config['per_page'] = $this->config->item('scrud_limit');
+        
         $this->CI->pagination->initialize($config);
         $pagination=$this->CI->pagination->create_links();
         return array('columns'=>$all_columns,'keys'=>$keys,'search'=>$search_terms,'data'=>$data,'description'=>$description,'pagination'=>$pagination,'scrudID'=>$this->scrudID );

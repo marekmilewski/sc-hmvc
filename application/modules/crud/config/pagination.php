@@ -1,6 +1,6 @@
 <?php
 
-            $config['per_page'] = 5;
+            $config['per_page'] = 3;
             $config['full_tag_open'] = '<ul class="pagination pagination-sm">';
             $config['full_tag_close'] = '</ul>';
             $config['first_link'] = 'Pierwszy';

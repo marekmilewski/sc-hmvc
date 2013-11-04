@@ -17,8 +17,8 @@ class crud_library {
         
         $this->CI->config->load('crud/crud');
         $this->scrudID=$this->getScrudID();
-        $this->params=$this->CI->uri->uri_to_assoc( $this->CI->config->item('params_start_segment') );
-        
+        $this->params=$this->CI->uri->uri_to_assoc(5);
+
         $this->form_data=NULL;
         $this->upload_errors=NULL;
     }
@@ -75,7 +75,7 @@ class crud_library {
         $this->CI->load->library('pagination');
         $config['base_url'] = base_url().$this->CI->uri->segment(1).'/'.$this->CI->router->fetch_class().'/view/'.$this->scrudID.'/from/';
         $config['total_rows'] = $this->CI->crud_model->countResults($this->scrudID);
-        $config['per_page'] = $this->config->item('scrud_limit');
+        $config['per_page'] = $this->CI->config->item('scrud_limit');
         
         $this->CI->pagination->initialize($config);
         $pagination=$this->CI->pagination->create_links();

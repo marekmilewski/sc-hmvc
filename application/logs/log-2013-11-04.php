@@ -14,3 +14,10 @@ ERROR - 2013-11-04 15:27:03 --> 404 Page Not Found --> users/main/view/19/from/2
 ERROR - 2013-11-04 15:28:09 --> Severity: Notice  --> Undefined property: CI::$url /home/fujitsu/Projekty/sc-hmvc/application/modules/crud/libraries/crud_library.php 76
 ERROR - 2013-11-04 15:28:10 --> Severity: Notice  --> Undefined property: CI::$url /home/fujitsu/Projekty/sc-hmvc/application/modules/crud/libraries/crud_library.php 76
 ERROR - 2013-11-04 15:34:20 --> Query error: Unknown column 'from' in 'where clause'
+ERROR - 2013-11-04 15:49:06 --> Severity: Notice  --> Undefined property: crud_library::$config /home/fujitsu/Projekty/sc-hmvc/application/modules/crud/libraries/crud_library.php 78
+ERROR - 2013-11-04 15:56:36 --> Query error: Unknown column 'view' in 'where clause'
+ERROR - 2013-11-04 15:56:37 --> Query error: Unknown column 'view' in 'where clause'
+ERROR - 2013-11-04 15:56:37 --> Query error: Unknown column 'view' in 'where clause'
+ERROR - 2013-11-04 15:56:37 --> Query error: Unknown column 'view' in 'where clause'
+ERROR - 2013-11-04 15:56:37 --> Query error: Unknown column 'view' in 'where clause'
+ERROR - 2013-11-04 15:57:19 --> Query error: Unknown column 'from' in 'where clause'

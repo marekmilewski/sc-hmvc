@@ -24,7 +24,7 @@ class main extends MX_Controller{
         $header=modules::run('html/draw/header');
         $footer=modules::run('html/draw/footer');
         $table=modules::run('html/draw/table',$data['columns'],$data['data'],$data['pagination'],$data['description']);
-        $add_link=base_url().$module.'/'.$this->uri->segment(2).'/add/'.$this->crud_library->getScrudID();
+        $add_link=base_url().$this->uri->segment(1).'/'.$this->uri->segment(2).'/add/'.$this->crud_library->getScrudID();
         
         $this->load->view('crud/main',array('header'=>$header,'footer'=>$footer,'table'=>$table,'add_link'=>$add_link) );
     }
@@ -34,7 +34,7 @@ class main extends MX_Controller{
             $data=$this->crud_library->getForm();           
             $header=modules::run('html/draw/header');
             $footer=modules::run('html/draw/footer');            
-            $form=modules::run('html/draw/form',$data['fields'],$data['data'],$data['errors']);
+            $form=modules::run('html/draw/form',$data['title'],$data['fields'],$data['data'],$data['errors']);
             
             $this->load->view('crud/main',array('header'=>$header,'footer'=>$footer,'form'=>$form) );
         }
@@ -52,7 +52,7 @@ class main extends MX_Controller{
             $data=$this->crud_library->getForm();   
             $header=modules::run('html/draw/header');
             $footer=modules::run('html/draw/footer');            
-            $form=modules::run('html/draw/form',$data['fields'],$data['data'],$data['errors']);
+            $form=modules::run('html/draw/form',$data['title'],$data['fields'],$data['data'],$data['errors']);
             
             $this->load->view('crud/main',array('header'=>$header,'footer'=>$footer,'form'=>$form) );
         }

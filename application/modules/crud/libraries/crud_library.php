@@ -167,6 +167,7 @@ class crud_library {
 
     public function getForm(){
         
+        $title=$this->CI->crud_model->getTableDescription($this->scrudID);
         $errors=($this->form_upload_errors!='') ? NULL : $this->form_upload_errors ;
         
         if($this->CI->uri->segment( $this->CI->config->item('action_segment') )=='edit'){
@@ -181,7 +182,7 @@ class crud_library {
         else
             $data=NULL;
 
-        return array('fields'=>$this->form_fields, 'data'=>$data, 'errors'=>$errors );
+        return array('title'=>$title,'fields'=>$this->form_fields, 'data'=>$data, 'errors'=>$errors );
     }
     
     

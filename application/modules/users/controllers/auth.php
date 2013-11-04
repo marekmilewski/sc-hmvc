@@ -53,29 +53,42 @@ public function login(){
         
  
 public function forgot_password(){
+    
+    $data['header']=modules::run('html/draw/header',false);
+    $data['footer']=modules::run('html/draw/footer');    
+    $data['message']='';
+    
     $this->form_validation->set_rules('email', 'Email Address', 'required');
     
     if ($this->form_validation->run() == false)
-        $this->load->view('admin/forgot_password');
-    else
-		{
-			//run the forgotten password method to email an activation code to the user
-			$forgotten = $this->ion_auth->forgotten_password($this->input->post('email'));
-
-			if ($forgotten)
-			{ //if there were no errors
-				$this->session->set_flashdata('message', $this->ion_auth->messages());
-				redirect("auth/login", 'refresh'); //we should display a confirmation page here instead of the login page
-			}
-			else
-			{
-				$this->session->set_flashdata('message', $this->ion_auth->errors());
-				redirect("auth/forgot_password", 'refresh');
-			}
-		}
-	}
+        $this->load->view('admin/forgot_password',$data);
+    else{
+        $forgotten = $this->ion_auth->forgotten_password($this->input->post('email'));
         
-
+        if ($forgotten){
+            $this->session->set_flashdata('message', $this->ion_auth->messages());
+            redirect("users/auth/login", 'refresh');
+        }
+        else{
+            $this->session->set_flashdata('message', $this->ion_auth->errors());
+            redirect("users/auth/forgot_password", 'refresh');
+        }   
+     }
+	
+     
+ }
+ 
+ 
+ 
+ public function logout(){
+     $logout = $this->ion_auth->logout();
+     redirect('users/auth/login', 'refresh');
+ }
+ 
+ 
+ 
+ 
+ 
         
         
         
@@ -118,16 +131,7 @@ public function forgot_password(){
 */
 
 	//log the user out
-	function logout()
-	{
-		$data['title'] = "Logout";
 
-		//log the user out
-		$logout = $this->ion_auth->logout();
-
-		//redirect them back to the page they came from
-		redirect('auth', 'refresh');
-	}
 
 	//change password
 	function change_password()

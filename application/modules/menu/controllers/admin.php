@@ -21,7 +21,7 @@ public function __construct(){
 
             $header=modules::run('html/admin/header');
             $footer=modules::run('html/admin/footer');            
-            $form=modules::run('html/admin/form',$data['fields'],$data['data'],$data['errors']);
+            $form=modules::run('html/admin/form',$data['title'],$data['fields'],$data['data'],$data['errors']);
             $this->load->view('crud/main',array('header'=>$header,'footer'=>$footer,'form'=>$form) );
         }
         else{
@@ -38,7 +38,7 @@ public function __construct(){
         if( !$this->crud_library->isValidForm() ){
             $header=modules::run('html/admin/header');
             $footer=modules::run('html/admin/footer');            
-            $form=modules::run('html/admin/form',$data['fields'],$data['data'],$data['errors']);
+            $form=modules::run('html/admin/form',$data['title'],$data['fields'],$data['data'],$data['errors']);
             
             $this->load->view('crud/main',array('header'=>$header,'footer'=>$footer,'form'=>$form) );
         }

@@ -7,8 +7,7 @@ if($errors!='')
 
 ?>
 <div class="panel panel-default">
-  <!-- Default panel contents -->
-  <div class="panel-heading">Panel heading</div>
+  <div class="panel-heading"><?php echo $title; if($this->uri->segment( $this->config->item('action_segment') )=='add') echo ': Nowy rekord'; else echo ': Edycja'; ?></div>
   <div class="panel-body">
 
 

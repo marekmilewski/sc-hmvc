@@ -22,7 +22,7 @@ class Draw extends MX_Controller {
     
     
     public function header(){
-       return $this->load->view('admin/header',array('menu'=>$menu),true);
+       return $this->load->view('admin/header',true);
     }
     
     public function footer(){
@@ -33,8 +33,8 @@ class Draw extends MX_Controller {
         return $this->load->view('admin/table',array('columns'=>$columns, 'data'=>$data,'pagination'=>$pagination, 'description'=>$description),true);
     }
     
-    public function form($fields,$data,$errors){
-        return $this->load->view('admin/form',array('fields'=>$fields,  'data'=>$data, 'errors'=>$errors),true);
+    public function form($title,$fields,$data,$errors){
+        return $this->load->view('admin/form',array('title'=>$title, 'fields'=>$fields,  'data'=>$data, 'errors'=>$errors),true);
     }
     
     

@@ -3,7 +3,7 @@
 
 class crud_library {
     private $CI;
-    private $scrudID;
+    private $crudID;
     private $params;
 
 
@@ -16,7 +16,7 @@ class crud_library {
         $this->CI->load->model('crud/crud_model');
         
         $this->CI->config->load('crud/crud');
-        $this->scrudID=$this->getScrudID();
+        $this->crudID=$this->getScrudID();
         $this->params=$this->CI->uri->uri_to_assoc($this->CI->config->item('params_start_segment') );
 
         $this->form_data=NULL;
@@ -36,11 +36,11 @@ class crud_library {
             $from=0;
         
         
-        $description=$this->CI->crud_model->getTableDescription($this->scrudID);
-        $columns=$this->CI->crud_model->getColumns($this->scrudID);
+        $description=$this->CI->crud_model->getTableDescription($this->crudID);
+        $columns=$this->CI->crud_model->getColumns($this->crudID);
 
-        $keys=$this->CI->crud_model->getKeys($this->scrudID);
-        $search_terms=$this->CI->crud_model->getSearch($this->scrudID);        
+        $keys=$this->CI->crud_model->getKeys($this->crudID);
+        $search_terms=$this->CI->crud_model->getSearch($this->crudID);        
         
         if(!$this->CI->input->post('search')){
             $search_terms=NULL;
@@ -60,11 +60,11 @@ class crud_library {
         $cols= array_unique($cols);
     
     
-        $data=$this->CI->crud_model->getTableData($this->scrudID,$cols,$this->params,$search_terms,$search_value,$this->CI->config->item('scrud_limit'),$from);
+        $data=$this->CI->crud_model->getTableData($this->crudID,$cols,$this->params,$search_terms,$search_value,$this->CI->config->item('scrud_limit'),$from);
 
         foreach($data as $key=>$row){
-            $data[$key]['edit_action']=base_url().$this->CI->uri->segment($this->CI->config->item('module_segment')).'/'.$this->CI->uri->segment($this->CI->config->item('class_segment')).'/edit/'.$this->scrudID.'/'.$this->getKeys($keys,$data[$key]);
-            $data[$key]['delete_action']='javascript:confirmDialog('.base_url().$this->CI->uri->segment($this->CI->config->item('module_segment')).'/'.$this->CI->uri->segment($this->CI->config->item('class_segment')).'/delete/'.$this->scrudID.'/'.$this->getKeys($keys,$data[$key]);
+            $data[$key]['edit_action']=base_url().$this->CI->uri->segment($this->CI->config->item('module_segment')).'/'.$this->CI->uri->segment($this->CI->config->item('class_segment')).'/edit/'.$this->crudID.'/'.$this->getKeys($keys,$data[$key]);
+            $data[$key]['delete_action']='javascript:confirmDialog('.base_url().$this->CI->uri->segment($this->CI->config->item('module_segment')).'/'.$this->CI->uri->segment($this->CI->config->item('class_segment')).'/delete/'.$this->crudID.'/'.$this->getKeys($keys,$data[$key]);
         }
         
         
@@ -73,13 +73,13 @@ class crud_library {
         array_push($all_columns, array('name' => 'delete_action','description'=>'Usuń','align'=>'center','width' => '10'));
 
         $this->CI->load->library('pagination');
-        $config['base_url'] = base_url().$this->CI->uri->segment($this->CI->config->item('module_segment')).'/'.$this->CI->uri->segment($this->CI->config->item('class_segment')).'/view/'.$this->scrudID.'/from/';
-        $config['total_rows'] = $this->CI->crud_model->countResults($this->scrudID);
+        $config['base_url'] = base_url().$this->CI->uri->segment($this->CI->config->item('module_segment')).'/'.$this->CI->uri->segment($this->CI->config->item('class_segment')).'/view/'.$this->crudID.'/from/';
+        $config['total_rows'] = $this->CI->crud_model->countResults($this->crudID);
         $config['per_page'] = $this->CI->config->item('scrud_limit');
         
         $this->CI->pagination->initialize($config);
         $pagination=$this->CI->pagination->create_links();
-        return array('columns'=>$all_columns,'keys'=>$keys,'search'=>$search_terms,'data'=>$data,'description'=>$description,'pagination'=>$pagination,'scrudID'=>$this->scrudID );
+        return array('columns'=>$all_columns,'keys'=>$keys,'search'=>$search_terms,'data'=>$data,'description'=>$description,'pagination'=>$pagination,'scrudID'=>$this->crudID );
     }
     
     
@@ -106,7 +106,7 @@ class crud_library {
     public function isValidForm(){
         $form_valid=false;
         
-        $this->form_fields=$this->CI->crud_model->getFields($this->scrudID);       
+        $this->form_fields=$this->CI->crud_model->getFields($this->crudID);       
         $this->CI->load->library('form_validation');
         $this->CI->form_validation->set_error_delimiters('','');
         
@@ -166,7 +166,7 @@ class crud_library {
 
     public function getForm(){
         
-        $title=$this->CI->crud_model->getTableDescription($this->scrudID);
+        $title=$this->CI->crud_model->getTableDescription($this->crudID);
         $errors=($this->form_upload_errors!='') ? NULL : $this->form_upload_errors ;
         
         if($this->CI->uri->segment( $this->CI->uri->segment($this->CI->config->item('method_segment')) )=='edit'){
@@ -175,7 +175,7 @@ class crud_library {
             foreach($this->form_fields as $field)
                 $select[].=$field['name'];
                 
-            $data=$this->CI->crud_model->getData($this->scrudID,$select, $this->getKeysFromURL() );
+            $data=$this->CI->crud_model->getData($this->crudID,$select, $this->getKeysFromURL() );
             $data=$data[0];
         }
         else
@@ -198,16 +198,16 @@ class crud_library {
     
     
     public function addRecord($data){
-        $this->CI->crud_model->addRecord($this->scrudID,$data);
+        $this->CI->crud_model->addRecord($this->crudID,$data);
     }
     
     public function updateRecord($data){
-        $this->CI->crud_model->updateRecord($this->scrudID,$data,$this->getKeysFromURL() );
+        $this->CI->crud_model->updateRecord($this->crudID,$data,$this->getKeysFromURL() );
     }
     
     public function deleteRecord(){
         $keys=$this->getKeysFromURL();
-        $this->CI->crud_model->deleteRecord($this->scrudID,$keys);
+        $this->CI->crud_model->deleteRecord($this->crudID,$keys);
     }
     
     
@@ -224,11 +224,11 @@ class crud_library {
     }
 
     public function getScrudID(){
-        $this->scrudID=$this->CI->uri->segment( $this->CI->config->item('crudID_segment') );
-        if(!$this->scrudID)
+        $this->crudID=$this->CI->uri->segment( $this->CI->config->item('crudID_segment') );
+        if(!$this->crudID)
             die('No scrudID !!!');
         else
-            return $this->scrudID;
+            return $this->crudID;
     }    
     
     

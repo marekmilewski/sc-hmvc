@@ -21,7 +21,7 @@ public function add(){
         $data=$this->crud_library->getForm();   
         $header=modules::run('html/draw/header');
         $footer=modules::run('html/draw/footer');
-        $form=modules::run('html/draw/form',$data['fields'],$data['data'],$data['errors']);
+        $form=modules::run('html/draw/form',$data['title'],$data['fields'],$data['data'],$data['errors']);
         
         $this->load->view('crud/main',array('header'=>$header,'footer'=>$footer,'form'=>$form) );
     }
@@ -51,7 +51,7 @@ public function edit(){
         
         $header=modules::run('html/draw/header');
         $footer=modules::run('html/draw/footer');
-        $form=modules::run('html/draw/form',$data['fields'],$data['data'],$data['errors']);
+        $form=modules::run('html/draw/form',$data['title'],$data['fields'],$data['data'],$data['errors']);
         
         $this->load->view('crud/main',array('header'=>$header,'footer'=>$footer,'form'=>$form) );
         }

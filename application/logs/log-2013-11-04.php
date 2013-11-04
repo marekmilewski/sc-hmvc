@@ -21,3 +21,23 @@ ERROR - 2013-11-04 15:56:37 --> Query error: Unknown column 'view' in 'where cla
 ERROR - 2013-11-04 15:56:37 --> Query error: Unknown column 'view' in 'where clause'
 ERROR - 2013-11-04 15:56:37 --> Query error: Unknown column 'view' in 'where clause'
 ERROR - 2013-11-04 15:57:19 --> Query error: Unknown column 'from' in 'where clause'
+ERROR - 2013-11-04 16:02:12 --> Severity: Notice  --> Undefined property: MX_Config::$item /home/fujitsu/Projekty/sc-hmvc/application/modules/crud/libraries/crud_library.php 20
+ERROR - 2013-11-04 16:02:45 --> Query error: Unknown column 'view' in 'where clause'
+ERROR - 2013-11-04 16:02:46 --> Query error: Unknown column 'view' in 'where clause'
+ERROR - 2013-11-04 16:02:47 --> Query error: Unknown column 'view' in 'where clause'
+ERROR - 2013-11-04 16:02:47 --> Query error: Unknown column 'view' in 'where clause'
+ERROR - 2013-11-04 16:02:47 --> Query error: Unknown column 'view' in 'where clause'
+ERROR - 2013-11-04 16:02:47 --> Query error: Unknown column 'view' in 'where clause'
+ERROR - 2013-11-04 16:02:48 --> Query error: Unknown column 'view' in 'where clause'
+ERROR - 2013-11-04 16:02:48 --> Query error: Unknown column 'view' in 'where clause'
+ERROR - 2013-11-04 16:02:48 --> Query error: Unknown column 'view' in 'where clause'
+ERROR - 2013-11-04 16:02:48 --> Query error: Unknown column 'view' in 'where clause'
+ERROR - 2013-11-04 16:07:18 --> 404 Page Not Found --> 1/2/edit/19/products_id/86396
+ERROR - 2013-11-04 16:09:49 --> Severity: Notice  --> Undefined variable: add_link /home/fujitsu/Projekty/sc-hmvc/application/modules/crud/views/main.php 7
+ERROR - 2013-11-04 16:09:49 --> Severity: Notice  --> Undefined variable: table /home/fujitsu/Projekty/sc-hmvc/application/modules/crud/views/main.php 10
+ERROR - 2013-11-04 16:10:26 --> Severity: Notice  --> Undefined variable: add_link /home/fujitsu/Projekty/sc-hmvc/application/modules/crud/views/main.php 7
+ERROR - 2013-11-04 16:10:26 --> Severity: Notice  --> Undefined variable: table /home/fujitsu/Projekty/sc-hmvc/application/modules/crud/views/main.php 10
+ERROR - 2013-11-04 16:10:27 --> Severity: Notice  --> Undefined variable: add_link /home/fujitsu/Projekty/sc-hmvc/application/modules/crud/views/main.php 7
+ERROR - 2013-11-04 16:10:27 --> Severity: Notice  --> Undefined variable: table /home/fujitsu/Projekty/sc-hmvc/application/modules/crud/views/main.php 10
+ERROR - 2013-11-04 16:10:28 --> Severity: Notice  --> Undefined variable: add_link /home/fujitsu/Projekty/sc-hmvc/application/modules/crud/views/main.php 7
+ERROR - 2013-11-04 16:10:28 --> Severity: Notice  --> Undefined variable: table /home/fujitsu/Projekty/sc-hmvc/application/modules/crud/views/main.php 10

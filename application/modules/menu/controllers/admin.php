@@ -7,11 +7,6 @@ class Admin extends Main {
 
 public function __construct(){
     parent::__construct();
-
-    $this->load->module('auth');
-    if(!$this->auth->ion_auth->logged_in())
-            redirect('auth', 'refresh');    
-    
     $this->config->load('menu/menu');
 }
     

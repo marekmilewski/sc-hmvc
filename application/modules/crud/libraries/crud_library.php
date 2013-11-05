@@ -64,7 +64,7 @@ class crud_library {
 
         foreach($data as $key=>$row){
             $data[$key]['edit_action']=base_url().$this->CI->uri->segment($this->CI->config->item('module_segment')).'/'.$this->CI->uri->segment($this->CI->config->item('class_segment')).'/edit/'.$this->crudID.'/'.$this->getKeys($keys,$data[$key]);
-            $data[$key]['delete_action']='javascript:confirmDialog('.base_url().$this->CI->uri->segment($this->CI->config->item('module_segment')).'/'.$this->CI->uri->segment($this->CI->config->item('class_segment')).'/delete/'.$this->crudID.'/'.$this->getKeys($keys,$data[$key]);
+            $data[$key]['delete_action']="javascript:confirmDialog('".base_url().$this->CI->uri->segment($this->CI->config->item('module_segment')).'/'.$this->CI->uri->segment($this->CI->config->item('class_segment')).'/delete/'.$this->crudID.'/'.$this->getKeys($keys,$data[$key])."')";
         }
         
         
@@ -207,6 +207,7 @@ class crud_library {
     
     public function deleteRecord(){
         $keys=$this->getKeysFromURL();
+        var_export($keys);
         $this->CI->crud_model->deleteRecord($this->crudID,$keys);
     }
     
